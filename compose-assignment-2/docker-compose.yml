@@ -1,1 +1,27 @@
-# create your drupal and postgres config here, based off the last assignment
+version: '3.9'
+
+services: 
+    drupal1:
+        image: drupal
+        ports: 
+            - 8080:80
+        volumes:
+            - modules:/var/www/html/modules
+            - profiles:/var/www/html/profiles
+            - themes:/var/www/html/themes
+            - sites:/var/www/html/sites
+    postgres1:
+        image: postgres
+        environment: 
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_USER: postgres
+        volumes:
+            - data:/var/lib/postgresql/data
+
+
+volumes:
+    data:
+    modules:
+    profiles:
+    themes:
+    sites:
