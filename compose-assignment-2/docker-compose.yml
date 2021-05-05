@@ -1,8 +1,9 @@
 version: '3.9'
 
 services: 
-    drupal1:
-        image: drupal
+    drupal:
+        image: custom-drupal
+        build: .
         ports: 
             - 8080:80
         volumes:
@@ -10,7 +11,7 @@ services:
             - profiles:/var/www/html/profiles
             - themes:/var/www/html/themes
             - sites:/var/www/html/sites
-    postgres1:
+    postgres:
         image: postgres
         environment: 
             POSTGRES_PASSWORD: postgres
